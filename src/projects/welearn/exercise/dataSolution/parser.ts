@@ -27,13 +27,26 @@ function parseAnswer(element: HTMLElement) {
         answerType = "blank";
     } else {
         //选择题
+        answerType = "choice";  
         try {
-            answerText = element.firstElementChild!.textContent;
-            if (!answerText) answerText = element.textContent;
+            let Nodechild = element.firstElementChild!;
+            let NodeSibling = element.nextElementSibling;
+            if (Nodechild) {
+                answerText = Nodechild.textContent;
+            } else if (NodeSibling) {
+                // 适配领航大学英语中部分填空题的答案位置(被相邻节点包含)
+                if (NodeSibling.hasChildNodes()) {
+                    NodeSibling.childNodes.forEach(node => answerText += node.textContent?.trim() + " " || "")
+                } else {
+                    answerText = NodeSibling.textContent?.trim() || answerText
+                }
+                answerType = "blank";
+            } else {
+                answerText = element.textContent;
+            }
         } catch (error) {
             answerText = element.textContent;
         }
-        answerType = "choice";
     }
 
     return {
