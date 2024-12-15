@@ -41,6 +41,8 @@ const DATA_SOLUTION = [
     "New Advanced College English-Integrated Course 2", // 所以如果只是后端添加catalog，只有第一个页面有效
     "New Advanced College English-Integrated Course 3",
     "New Advanced College English-Integrated Course 4",
+    "Pioneer College English Integrated Course 1", // 领航大学英语综合教程1
+    "Pioneer College English Integrated Course 2", // 领航大学英语综合教程2
 ];
 
 /**et类型(url中包含data)理论上可以直接在原始页面上找(Demcorazy就是这么做的)，不过也可以统一通过ajax请求获取*/
