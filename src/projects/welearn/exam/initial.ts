@@ -72,13 +72,15 @@ function notify() {
     }
 }
 
-if (location.href.includes(".sflep.com/test/") || location.href.includes("wetest.sflep.com/Test")) {
-    // iife不允许顶层await
-    (async () => {
-        await watcher();
-    })();
-}
+export async function initialExam() {
+    if (location.href.includes(".sflep.com/test/") || location.href.includes("wetest.sflep.com/Test")) {
+        // iife不允许顶层await
+        (async () => {
+            await watcher();
+        })();
+    }
 
-if (location.href.includes(".sflep.com/student/course_info.aspx?")) {
-    WELearnAPI.upload();
+  if (location.href.includes(".sflep.com/student/course_info.aspx?")) {
+        WELearnAPI.upload();
+    }
 }
