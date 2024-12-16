@@ -1,4 +1,5 @@
-import "@src/projects/welearn/initial";
+import { initialWELearn } from
+    "@src/projects/welearn/initial";
 import "@icon-park/react/styles/index.css";
 
 import React from "react";
@@ -56,4 +57,6 @@ function initialize() {
 (async function () {
     await initialUserSettings();
     initialize();
+
+     initialWELearn();
 })();
